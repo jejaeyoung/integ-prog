@@ -1,2 +1,2 @@
-## integrative-programming
+## integ-prog
 
