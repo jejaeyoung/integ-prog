@@ -36,7 +36,7 @@ function StarwarsDisplay(props) {
        })
     
      
-    }, [theData])
+    }, [thePeople, theId, svalue, id]) //Add the relevant dependencies here that needs to be re render
     
 
   return (
