@@ -6,6 +6,8 @@ const faker = require("faker");
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
+const allProfile = [];
+
 //sample response
 app.get("/api/show/wew",(req,res)=>{
     res.json({
@@ -48,13 +50,18 @@ app.get("/api/profile/show",(req,res)=>{
     console.log(faker.name.firstName());
 })
 
-//post
+//post for fill out forms
 app.post("/api/profile/new",(req,res)=>{
-    res.json({
-        status:"registered a new account",
-        
-    })
+    res.json([
+        {status:"registered a new account"}, req.body
+    ])
+    console.log(req.body);
+    allProfile.push(req.body)
+})
 
+//get this galing post
+app.get("/api/showall/profile",(req,res)=>{
+    res.json(allProfile)
     console.log(req.body);
 })
 
