@@ -1,10 +1,11 @@
 const express = require("express");
 const app = express ();
-const port = 8000;
+const port = 8001;
 const faker = require("faker");
+const cors = require("cors")
 
-app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+
+app.use(express.json(), express.urlencoded({extended:true}), cors());
 
 const allProfile = [];
 
