@@ -49,15 +49,6 @@ function PokemonIndividual(props) {
                 console.log(err);
             });
     }, []);
-
-    
-    
-    
-    
-    
-    
-
-  
     
         //for Species
         useEffect(() => {

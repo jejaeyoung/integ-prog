@@ -43,7 +43,7 @@ const deleteAnExistingDigimon = (req, res) => {
     Digimon.deleteOne({ _id: req.params.id })
         .then(resultDigmon => {
             res.json({ deletedDigimon: resultDigmon })
-            console.log("Digimon  has been deleted");
+            console.log("Digimon has been deleted");
         })
         .catch((err) => {
             res.json({ message: 'Something went wrong', error: err })

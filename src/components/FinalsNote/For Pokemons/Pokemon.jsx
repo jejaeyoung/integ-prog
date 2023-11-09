@@ -24,25 +24,17 @@ const Pokemon =()=> {
     const [allType,setAlltype]=useState([]);
     // selectedtype for pokemon results
     const [selectedType,setSelectedType]=useState(1)
+
     // for pages
-
-
     // const [currentPage, setCurrentPage] = useState(1);
-
     // //next paging
     // const displayedPokemon = allPokemon.slice((currentPage - 1) * limit, currentPage * limit);
-
-    // const handlePrevious = () => {
-    
+    // const handlePrevious = () => { 
     //     setCurrentPage(currentPage - 1);
-   
     // };
-  
     // const handleNext = () => { 
     //     setCurrentPage(currentPage + 1);
     // };
-  
-
     //consume an api
     //promise - it will try to execute an instruction, pero yung ibang line mo sa ibaba irereload niya.
     //task hindi guaranteed pero itatatry siyang i load ni computer
@@ -54,6 +46,7 @@ const Pokemon =()=> {
       const newList = allPokemon.filter((element)=>{return element.pokemon.name !== nameofpokemon})
       setAllPokemon(newList);
     }
+    
     //Pokemon Image
     useEffect(() => {
       axios.get(`https://pokeapi.co/api/v2/pokemon/${aNumber}`)

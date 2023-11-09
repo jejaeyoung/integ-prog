@@ -17,25 +17,15 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 // import Pokemon from './components/FinalsNote/Pokemon';
 // import ScheduleForm from './components/MernMidterm/ScheduleForm';
-// import ScheduleFormMidterm from './components/MernMidterm/ScheduleFormMidterm';
+import ScheduleFormMidterm from './components/MernMidterm/ScheduleFormMidterm';
 import UseEpek from './components/FinalsNote/UseEpek';
-import Myform from './components/Myform';
-import Myfriends from './components/Myfriends';
+import Myform from './components/MernMidterm/Myform';
+import Myfriends from './components/MernMidterm/Myfriends';
 import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import Home from './components/FinalsNote/Home';
 import PokemonIndividual from './components/FinalsNote/For Pokemons/PokemonIndividual';
-import PokemonEvolution from './components/FinalsNote/For Pokemons/PokemonEvolution';
 import StarwarsDisplay from './components/FinalsNote/For StarWars/StarwarsDisplay';
 import Digimon from './components/FinalsNote/For Digimon with MongoDB/Digimon';
-
-
-
-
-
-
-
-
-
 
 function App() {
 
@@ -80,38 +70,41 @@ function App() {
    
    
    <BrowserRouter>
+    <nav className="navbar navbar-dark bg-dark navbar-expand-lg justify-content-center">
+    <div className="collpase navbar-collapse-justify-content-center">
+      <ul className="navbar-nav justify-content-center ">
+        <li className="navbar-item">
+          <Link to={"/"} className='nav-link'>Home</Link>
+        </li>
+        <li className="navbar-item">
+          <Link to={"/Profile/John/30"} className='nav-link'>Profile</Link>
+        </li>   
+        <li className="navbar-item">
+          <Link to={"/Pokemon"} className='nav-link'>Pokemon List</Link>
+        </li>
+    
+        <NavDropdown title="Starwars" id="basic-nav-dropdown">
+            <NavDropdown.Item href={"/StarwarsList"}>List and Films</NavDropdown.Item>
+            <NavDropdown.Item href="/StarwarsDisplay">People and Planet</NavDropdown.Item>
+                {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">
+                  Separated link
+                </NavDropdown.Item> */}
+        </NavDropdown>
 
-   <nav className="navbar navbar-dark bg-dark navbar-expand-lg justify-content-center">
-   <div className="collpase navbar-collapse-justify-content-center">
-    <ul className="navbar-nav justify-content-center ">
-      <li className="navbar-item">
-        <Link to={"/"} className='nav-link'>Home</Link>
-      </li>
-      <li className="navbar-item">
-        <Link to={"/Profile/John/30"} className='nav-link'>Profile</Link>
-      </li>   
-      <li className="navbar-item">
-        <Link to={"/Pokemon"} className='nav-link'>Pokemon List</Link>
-      </li>
+        <li className="navbar-item">
+          <Link to={"/Digimon"} className='nav-link'>Digimon</Link>
+        </li>
+
+        <li className="navbar-item">
+          <Link to={"/Midterm"} className='nav-link'>Midterm</Link>
+        </li>
+
+      </ul>
+    </div>
   
-      <NavDropdown title="Starwars" id="basic-nav-dropdown">
-          <NavDropdown.Item href={"/StarwarsList"}>List and Films</NavDropdown.Item>
-          <NavDropdown.Item href="/StarwarsDisplay">People and Planet</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-      </NavDropdown>
-
-      <li className="navbar-item">
-        <Link to={"/Digimon"} className='nav-link'>Digimon</Link>
-      </li>
-
-    </ul>
-   </div>
- 
-   </nav>
+    </nav>
 
     <Routes>
       <Route path='/' element={<Home/>}></Route>
@@ -119,7 +112,7 @@ function App() {
       
       <Route path='/Pokemon' element={<Pokemon/>}></Route>
       <Route path='/Pokemon/:pname' element={<PokemonIndividual/>}></Route>
-      <Route path='/Pokemon/:pname/evolution' element={<PokemonEvolution/>}></Route>
+  
       
       <Route path='/StarwarsList' element={<Starwars/>}></Route>
       <Route path='/StarwarsDisplay'  element={<StarwarsDisplay/>}></Route>
@@ -127,6 +120,8 @@ function App() {
       <Route path='/StarwarsDisplay/planets/:id'  element={<StarwarsDisplay svalue="planets"/>}></Route>
       
       <Route path='/Digimon' element={<Digimon/>}></Route>
+
+      <Route path='/Midterm' element={<ScheduleFormMidterm/>}></Route>
     </Routes>
    </BrowserRouter>
 
