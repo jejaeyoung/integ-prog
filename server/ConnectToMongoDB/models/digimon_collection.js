@@ -22,8 +22,12 @@ const DigimonSchema = new Schema({
   },
   digimon_category:{
     type: String
+  },
+  digimon_gender:{
+    type:String
   }
-}, {
+},
+{
   timestamps: true, //will automatically create field for when it was created
 });
 

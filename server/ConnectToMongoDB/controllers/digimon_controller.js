@@ -14,6 +14,17 @@ const findOneSingleDigimon = (req, res) => {
     Digimon.findOne({ _id: req.params.id })
         .then(OneDigimon => {
             res.json({ Digimoan: OneDigimon })
+            console.log("You've found Single Digimon");
+        })
+        .catch((err) => {
+            res.json({ message: 'Something went wrong', error: err })
+        });}
+
+const findOneSingleDigimonbyName = (req, res) => {
+    Digimon.findOne({ digimon_name: req.params.dname })
+        .then(OneDigimon => {
+            res.json({ Digimoan: OneDigimon })
+            console.log("You've found Single Digimon");
         })
         .catch((err) => {
             res.json({ message: 'Something went wrong', error: err })
@@ -29,10 +40,19 @@ const createNewDigimon = (req, res) => {
         });}
 
 const deleteAnExistingDigimon = (req, res) => {
-    Digimon.findOneAndDelete({ _id: req.params.id })
+    Digimon.deleteOne({ _id: req.params.id })
         .then(resultDigmon => {
             res.json({ deletedDigimon: resultDigmon })
-            console.log("Digimon " +digimon_name+" has been deleted");
+            console.log("Digimon  has been deleted");
+        })
+        .catch((err) => {
+            res.json({ message: 'Something went wrong', error: err })
+        });}
+
+const updateExistingDigimon = (req, res) => {
+    Digimon.findOneAndUpdate({digimon_name:req.params.id},req.body,{ new: true, runValidators: true })
+        .then(updatedDigimon => {
+            res.json({ theupdatedDigimon: updatedDigimon })
         })
         .catch((err) => {
             res.json({ message: 'Something went wrong', error: err })
@@ -40,4 +60,11 @@ const deleteAnExistingDigimon = (req, res) => {
 
 
 
-module.exports = {findAllDigimon, findOneSingleDigimon, createNewDigimon, deleteAnExistingDigimon}
+module.exports = {
+    findAllDigimon, 
+    findOneSingleDigimon, 
+    createNewDigimon, 
+    deleteAnExistingDigimon,
+    updateExistingDigimon,
+    findOneSingleDigimonbyName
+}

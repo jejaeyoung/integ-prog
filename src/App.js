@@ -26,6 +26,7 @@ import Home from './components/FinalsNote/Home';
 import PokemonIndividual from './components/FinalsNote/For Pokemons/PokemonIndividual';
 import PokemonEvolution from './components/FinalsNote/For Pokemons/PokemonEvolution';
 import StarwarsDisplay from './components/FinalsNote/For StarWars/StarwarsDisplay';
+import Digimon from './components/FinalsNote/For Digimon with MongoDB/Digimon';
 
 
 
@@ -75,6 +76,7 @@ function App() {
   return (
     <>
 
+
    
    
    <BrowserRouter>
@@ -102,6 +104,10 @@ function App() {
               </NavDropdown.Item>
       </NavDropdown>
 
+      <li className="navbar-item">
+        <Link to={"/Digimon"} className='nav-link'>Digimon</Link>
+      </li>
+
     </ul>
    </div>
  
@@ -119,6 +125,8 @@ function App() {
       <Route path='/StarwarsDisplay'  element={<StarwarsDisplay/>}></Route>
       <Route path='/StarwarsDisplay/people/:id'  element={<StarwarsDisplay svalue="people"/>}></Route>
       <Route path='/StarwarsDisplay/planets/:id'  element={<StarwarsDisplay svalue="planets"/>}></Route>
+      
+      <Route path='/Digimon' element={<Digimon/>}></Route>
     </Routes>
    </BrowserRouter>
 
