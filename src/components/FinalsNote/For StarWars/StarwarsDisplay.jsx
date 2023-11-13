@@ -25,7 +25,6 @@ function StarwarsDisplay(props) {
 
     useEffect(() => {
      axios
-
        .get("https://swapi.dev/api/"+svalue+"/"+id)
        .then((response)=>{
             console.log(response.data);

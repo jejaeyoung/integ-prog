@@ -26,6 +26,9 @@ import Home from './components/FinalsNote/Home';
 import PokemonIndividual from './components/FinalsNote/For Pokemons/PokemonIndividual';
 import StarwarsDisplay from './components/FinalsNote/For StarWars/StarwarsDisplay';
 import Digimon from './components/FinalsNote/For Digimon with MongoDB/Digimon';
+import GetAllPokemon from './components/FinalsNote/Pokemon Backend/GetAllPokemon';
+import GetOnePokemon from './components/FinalsNote/Pokemon Backend/GetOnePokemon';
+import NewPokemon from './components/FinalsNote/Pokemon Backend/NewPokemon';
 
 function App() {
 
@@ -97,9 +100,11 @@ function App() {
           <Link to={"/Digimon"} className='nav-link'>Digimon</Link>
         </li>
 
-        <li className="navbar-item">
-          <Link to={"/Midterm"} className='nav-link'>Midterm</Link>
-        </li>
+        <NavDropdown title="School" id="basic-nav-dropdown">
+            <NavDropdown.Item href={"/Midterm"}>Midterm</NavDropdown.Item>
+            <NavDropdown.Item href="/GetPokemon">Pokemon Final</NavDropdown.Item>
+            
+        </NavDropdown>
 
       </ul>
     </div>
@@ -122,6 +127,10 @@ function App() {
       <Route path='/Digimon' element={<Digimon/>}></Route>
 
       <Route path='/Midterm' element={<ScheduleFormMidterm/>}></Route>
+
+      <Route path='/GetPokemon' element={<GetAllPokemon/>}></Route>
+      <Route path='/pokemon/singlepokemon/:pname' element={<GetOnePokemon/>}></Route>
+      <Route path='/pokemon/new' element={<NewPokemon/>}></Route>
     </Routes>
    </BrowserRouter>
 

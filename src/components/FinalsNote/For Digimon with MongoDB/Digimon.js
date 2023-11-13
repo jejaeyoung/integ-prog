@@ -18,6 +18,8 @@ const [newDigimon, setNewDigimon] = useState({
     digimon_gender: "Male"
 });
 
+const [searchCriteria, setSearchCriteria] = useState("name");
+const [searchQuery, setSearchQuery] = useState("");
 
 
 const handleCreate = ()=>{
@@ -151,8 +153,37 @@ const handleCreate = ()=>{
         </center>
 
     <center>
+             
         <hr/>
-        {allDigimon.map((element,index)=>{
+            <p>
+                  <select
+                      value={searchCriteria}
+                      onChange={(e)=>{setSearchCriteria(e.target.value)}}
+                      name="searchCriteria"
+                  >
+                      <option value="name">Name</option>
+                      <option value="category">Category</option>
+                      <option value="element">Element</option>
+                  </select>
+                  <input
+                      type="text"
+                      placeholder={`Search by ${searchCriteria}`}
+                      value={searchQuery}
+                      onChange={(e)=>{setSearchQuery(e.target.value)}}
+                  />
+            </p>
+        {allDigimon.filter((element) => {
+    // Filter based on the selected search criteria and query
+    if (searchCriteria === "name") {
+      return element.digimon_name.includes(searchQuery);
+    } else if (searchCriteria === "category") {
+      return element.digimon_category.includes(searchQuery);
+    } else if (searchCriteria === "element") {
+      return element.digimon_element.includes(searchQuery);
+    }
+    return true; // Return all Digimon if no criteria or query is specified
+  })
+        .map((element,index)=>{
             return<>
             <div key={index}>
                 <p>Digimon Name: {element.digimon_name}</p>
